@@ -5,8 +5,8 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "ru.redraven.collectiongallerymobile"
-        minSdkVersion 9
+        applicationId "ru.redraven.collectionmobile"
+        minSdkVersion 18
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -17,9 +17,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
 }
-
+android {
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+    }
+}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'org.springframework.android:spring-android-rest-template:2.0.0.M1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
 }
